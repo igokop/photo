@@ -1,0 +1,31 @@
+<div class="navbar" style="background-color: transparent;">
+    <div class="container-fluid" style="background-color: transparent;">
+        <div class="navbar-header" style="background-color: transparent; color:white;">
+            <button class="navbar-brand"
+                type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="cli()"
+                *ngIf="(isHandset$ | async)===false">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <a class="navbar-brand" style="color:white;" routerLink="/">Paweł Rogalski fotografia</a>
+        </div>
+        <div class="nav navbar-nav">
+            <li><a style="color:white;" routerLink="/register" *ngIf="(isHandset$ | async)">Umów się</a></li>
+            <li><a style="color:white;" routerLink="/aboutMe" *ngIf="(isHandset$ | async)">O mnie</a></li>
+            <li><a style="color:white;" routerLink="/contact" *ngIf="(isHandset$ | async)">Kontakt</a></li>
+        </div>
+    </div>
+</div>
+<!-- <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/">Strona glowna</a>
+      <a mat-list-item routerLink="/register">Umów się</a>
+      <a mat-list-item routerLink="/aboutMe">O mnie</a>
+      <a mat-list-item routerLink="/contact">Kontakt</a>
+    </mat-nav-list>
+</mat-sidenav> -->

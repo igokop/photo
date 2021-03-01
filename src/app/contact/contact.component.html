@@ -1,0 +1,66 @@
+<app-menu>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div style="text-align: center; margin-top:5%">
+                    <span class="material-icons"
+                    style="font-size: 80px">
+                        camera_alt
+                    </span>
+                    <h1 style="font-size: 40px">Paweł Rogalski</h1>
+                    <div class="about-border"></div>
+
+                    <h1>
+                        <span class="material-icons"
+                        style="font-size: 20px">phone</span> +48 793 989 088
+                    </h1>
+                    <h1>
+                        <span class="material-icons"
+                        style="font-size: 20px">email</span> pawelrogalski@gmail.com
+                    </h1>
+                    <h1>
+                        <span class="material-icons"
+                        style="font-size: 20px">place</span> Wrocław
+                    </h1>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div style="margin-top:5%; text-align:center">
+                    <span class="material-icons"
+                    style="font-size: 80px">
+                        contact_mail
+                    </span>
+                    <h1 style="font-size: 40px">Napisz do mnie!</h1>
+                    <div class="about-border"></div>
+                                    <form style="text-align:left" [formGroup]="userData" (ngSubmit)="onSubmit()">
+                                        <div class="form-group">
+                                            <label >Imię i nazwisko</label>
+                                            <input type="text" formControlName="name" class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="text" formControlName="email" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Wiadomość</label>
+                                            <input style="text-align:left;" type="text" formControlName="message" class="form-control"/>
+                                        </div>
+                                        <div class="example-button-container">
+                                            <button [disabled]="!userData.valid" *ngIf="informacja === false" mat-fab color="accent" style="background-color: rgb(97, 204, 231)" type="submit"  aria-label="Example icon button with a bookmark icon">
+                                                <mat-icon>mail</mat-icon>
+                                            </button>
+                                            <button *ngIf="informacja === true"  mat-fab color="accent" style="background-color: rgb(78, 104, 129)" type="submit"  aria-label="Example icon button with a bookmark icon">
+                                                <mat-icon [disabled]="!userData.valid"> done</mat-icon>
+                                            </button>
+                                            
+                                        </div>
+                                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-menu>
+
+
+

@@ -1,0 +1,8 @@
+<div class="backdrop" (click) = "closeIt()"></div>
+<div [@dialog] class="alert-box">
+    <p>{{ message }}</p>
+    <div class="alert-box-actions">
+        <span class="material-icons" (click) = "deleteIt()" style="cursor:pointer">done</span>
+        <span class="material-icons" (click) = "closeIt()" style="cursor:pointer">close</span>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <button mat-mini-fab color="basic" (click)="reload()" style="width: 150px; border-radius: 999px;">
+                <mat-icon>refresh</mat-icon>
+                Ładuj ponownie
+            </button>
+            <app-calendar></app-calendar>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <app-alert (close)="closed()" (delete)="deleteIncoming()" *ngIf="alertOpen" [message]="('Jesteś pewny, ze usuwamy klienta?')"></app-alert>
+            <app-alert (close)="closed()" (delete)="deletePending()" *ngIf="alertPendingOpen" [message]="('Jesteś pewny, ze usuwamy event?')"></app-alert>
+            <div class="list-group-item" 
+            *ngFor="let incomingEl of incoming; let i = index">
+                <div class="d-flex w-100 justify-content-between">
+                    <small>Oczekujące na akceptacje</small>
+                </div>
+                <div class="help-block">{{incomingEl.typ}} - {{ incomingEl.miasto}} {{ incomingEl.data | date: "dd LLLL yyyy" }} </div>
+                <div class="help-block">{{incomingEl.telefon}} {{ incomingEl.email }}</div>
+                            <form [formGroup]="radioButtons">
+                                <label>
+                                    <input type="radio" formControlName="godzina" value="rano">
+                                    <span>Godziny poranne </span>
+                                </label>
+                                <div></div>
+                                <label>
+                                    <input type="radio" formControlName="godzina" value="wieczor">
+                                    <span>Godziny wieczorne </span>
+                                </label>
+                                <div></div>
+                                <label>
+                                    <input type="radio" formControlName="godzina" value="calyDzien">
+                                    <span>Cały dzień </span>
+                                </label>
+                            </form>
+                <button mat-mini-fab color="basic" (click)="addPending(i,incomingEl)" aria-label="Example icon button with a filter list icon">
+                    <mat-icon>done</mat-icon>
+                </button> 
+                <button mat-mini-fab color="basic" (click)="openAlert(i)" aria-label="Example icon button with a filter list icon">
+                    <mat-icon>delete</mat-icon>
+                </button>               
+            </div>
+            <div class="list-group-item" 
+            *ngFor="let pendingEl of pending; let i = index">
+                <div class="d-flex w-100 justify-content-between">
+                    <small>Zaplanowane</small>
+                    <mat-icon>alarm</mat-icon>
+                </div>
+                <div class="help-block">{{pendingEl.typ}} - {{ pendingEl.miasto}} {{ pendingEl.data | date: "dd LLLL yyyy" }} </div>
+                <div class="help-block">{{pendingEl.telefon}} {{ pendingEl.email }}</div>
+                <button mat-mini-fab color="basic" (click)="openAlertPending(i)" aria-label="Example icon button with a filter list icon">
+                    <mat-icon>delete</mat-icon>
+                </button>   
+            </div>
+            <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                    <small>Zrealizowane</small>
+                    <span class="material-icons" *ngIf="!listaOpen" (click)="openList()" style="cursor:pointer;">
+                        expand_more
+                    </span>
+                    <span class="material-icons" *ngIf="listaOpen" (click)="openList()" style="cursor:pointer;">
+                        expand_less
+                    </span>
+                </div>
+            </div>
+            <div *ngIf="listaOpen">
+                <div  class="list-group-item"
+                *ngFor="let pastEl of past; let i = index">
+                    <div class="d-flex w-100 justify-content-between">
+                        <small>Zrealizowane</small>
+                        <mat-icon>done</mat-icon>
+                    </div>
+                    <div class="help-block">{{pastEl.typ}} - {{ pastEl.miasto}} {{ pastEl.data | date: "dd LLLL yyyy" }} </div>
+                    <div class="help-block">{{pastEl.telefon}} {{ pastEl.email }}</div>
+                </div>
+            </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <div class="list-group-item"
+            *ngFor="let wiadoEl of wiadomosci; let i = index">
+                <div class="d-flex w-100 justify-content-between">
+                    <!-- <small>Zrealizowane</small> -->
+                    <mat-icon>message</mat-icon>
+                </div>
+                <div class="help-block">Dane: {{wiadoEl.name}},  </div>
+                <div class="help-block">Email: {{ wiadoEl.email }}, </div>
+                <div class="help-block">Wiadomość: {{ wiadoEl.message }}</div>
+                <button mat-mini-fab color="basic" (click)="moveToArchive(i)" aria-label="Example icon button with a filter list icon">
+                    <mat-icon>archive</mat-icon>
+                </button>
+                <!-- <div class="help-block">{{pastEl.telefon}} {{ pastEl.email }}</div>  -->
+        </div>
+        <div class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <small>Archiwum</small>
+                <span class="material-icons" *ngIf="!listaOpenArchive" (click)="openListArchive()" style="cursor:pointer;">
+                    expand_more
+                </span>
+                <span class="material-icons" *ngIf="listaOpenArchive" (click)="openListArchive()" style="cursor:pointer;">
+                    expand_less
+                </span>
+            </div>
+        </div>
+        <div *ngIf="listaOpenArchive">
+            <div class="list-group-item"
+                *ngFor="let wiadoEl of archive; let i = index">
+                    <div class="d-flex w-100 justify-content-between">
+                        <!-- <small>Zrealizowane</small> -->
+                        <mat-icon>message</mat-icon>
+                        <small>Archiwum</small>
+                    </div>
+                    <div class="help-block">Dane: {{wiadoEl.name}},  </div>
+                    <div class="help-block">Email: {{ wiadoEl.email }}, </div>
+                    <div class="help-block">Wiadomość: {{ wiadoEl.message }}</div>
+                    <!-- <div class="help-block">{{pastEl.telefon}} {{ pastEl.email }}</div>  -->
+            </div>
+        </div>
+    </div>
+</div>

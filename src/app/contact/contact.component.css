@@ -1,0 +1,8 @@
+.material-icons.md-36 { font-size: 36px; }
+.about-border {
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: rgb(97, 204, 231);
+    margin: 20px auto;
+}
