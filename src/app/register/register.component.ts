@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
     
     let reqObj = {
     //name:'Nowy klient! Mail: '+ email + ' Telefon: ' + telefon + '. Wiadomość od klienta: '+ ,
-    email: 'igor.kopaczewski@int.pl',
+    email: 'pp.rogalski@gmail.com',
     title: 'Zgłoszenie: '+okazja + ' ' + miasto,
     message: message
     }

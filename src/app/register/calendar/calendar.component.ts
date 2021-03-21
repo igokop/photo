@@ -101,6 +101,10 @@ export class CalendarComponent implements OnInit {
         this.renderer.setStyle(element,'background-color', 'rgb(127, 134, 151)')
         this.renderer.setStyle(element,'border-radius', '999px')
       }
+      else if(this.klienciService.pending[j].godzina === 'niePokazuj'){
+        this.renderer.removeStyle(element,'background-color');
+        this.renderer.removeStyle(element, 'border-radius');
+      }
       
     // this.renderer.setValue(element, 'disabled')
     } else {

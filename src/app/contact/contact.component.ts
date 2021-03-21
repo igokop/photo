@@ -23,7 +23,7 @@ informacja: boolean=false;
     });
   }
 onSubmit(){
-  let email = 'igor.kopaczewski@int.pl'
+  let email = 'pp.rogalski@gmail.com'
   let EmailKlienta = this.userData.value.email;
   let name = this.userData.value.name;
   let message = this.userData.value.message + ' '+name;
