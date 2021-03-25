@@ -1,177 +1,59 @@
 <app-menu>
+  <div style="height: 70px;"></div>
+  <!-- <h1 style="text-align: center;">Fotograf Wrocław</h1> -->
+  <app-big-picture *ngIf="pictureView" (next)="nextBigPicture()" (previous)="previousBigPicture()" (close)="closeBigPicture()" [photo]="photo"></app-big-picture>
   <div class="container" style="height: 100%;">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="about-border"></div>
         <carousel> 
-          <slide>
-            <img src="/assets/images/slub1.jpg" alt="first slide" style="display: block; width:100%">
+          <slide (click)="openBigPicture(i)" style="cursor:pointer" *ngFor="let gall of galleryOne; let i = index">
+            <img src="{{gall}}" alt="first slide" style="display: block; width:100%">
               <div class="caption">
                 <div class="carousel-caption d-none d-md-block">
                   <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">ŚLUBY I WESELA</h2>
                 </div>
               </div>
           </slide>
-          <slide>
-              <img src="/assets/images/slub2.jpg" alt="first slide" style="display: block; width: 100%;">
+        </carousel>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="about-border"></div>
+        <carousel> 
+          <slide (click)="openBigPicture(i+2)" style="cursor:pointer" *ngFor="let gall of galleryTwo; let i = index">
+            <img src="{{gall}}" alt="first slide" style="display: block; width:100%">
               <div class="caption">
                 <div class="carousel-caption d-none d-md-block">
                   <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">ŚLUBY I WESELA</h2>
                 </div>
               </div>
-            </slide>
-            <!-- <slide>
-              <img src="https://rondo.cc/images/galerie/236-1366.jpg" alt="first slide" style="display: block; width: 100%;">
+          </slide>
+        </carousel>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="about-border"></div>
+        <carousel> 
+          <slide (click)="openBigPicture(i+4)" style="cursor:pointer" *ngFor="let gall of galleryThree; let i = index">
+            <img src="{{gall}}" alt="first slide" style="display: block; width:100%">
               <div class="caption">
                 <div class="carousel-caption d-none d-md-block">
                   <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">ŚLUBY I WESELA</h2>
                 </div>
               </div>
-            </slide>
-          <slide>
-            <img src="https://rondo.cc/images/galerie/332-1638.jpg" alt="second slide" style="display: block; width: 100%;">
-            <div class="caption">
-              <div class="carousel-caption d-none d-md-block">
-                <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">ŚLUBY I WESELA</h2>
-              </div>
-            </div>
           </slide>
-          <slide>
-            <img src="http://www.czarnykotstudio.pl/wp-content/uploads/2015/11/003-fotografia-dziecieca-konin.jpg" alt="third slide" style="display: block; width: 100%;">
-            <div class="caption">
-              <div class="carousel-caption d-none d-md-block">
-                <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">ŚLUBY I WESELA</h2>
-              </div>
-            </div>
-          </slide> -->
         </carousel>
       </div>
       <div class="col-xs-12 col-sm-6">
         <div class="about-border"></div>
         <carousel> 
-          <slide>
-            <img src="/assets/images/koncert1.jpg" alt="first slide" style="display: block; width:100%">
+          <slide (click)="openBigPicture(i+6)" style="cursor:pointer" *ngFor="let gall of galleryFour; let i = index">
+            <img src="{{gall}}" alt="first slide" style="display: block; width:100%">
               <div class="caption">
                 <div class="carousel-caption d-none d-md-block">
-                  <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">KONCERTY</h2>
+                  <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">ŚLUBY I WESELA</h2>
                 </div>
               </div>
           </slide>
-          <slide>
-              <img src="/assets/images/koncert2.jpg" alt="first slide" style="display: block; width: 100%;">
-              <div class="caption">
-                <div class="carousel-caption d-none d-md-block">
-                  <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">KONCERTY</h2>
-                </div>
-              </div>
-            </slide>
-            <!-- <slide>
-              <img src="https://rondo.cc/images/galerie/236-1366.jpg" alt="first slide" style="display: block; width: 100%;">
-              <div class="caption">
-                <div class="carousel-caption d-none d-md-block" style="top:5%">
-                </div>
-              </div>
-            </slide>
-          <slide>
-            <img src="https://rondo.cc/images/galerie/332-1638.jpg" alt="second slide" style="display: block; width: 100%;">
-            <div class="caption">
-              <div class="carousel-caption d-none d-md-block" style="top:5%">
-              </div>
-            </div>
-          </slide>
-          <slide>
-            <img src="http://www.czarnykotstudio.pl/wp-content/uploads/2015/11/003-fotografia-dziecieca-konin.jpg" alt="third slide" style="display: block; width: 100%;">
-            <div class="caption">
-              <div class="carousel-caption d-none d-md-block" style="top:5%">
-              </div>
-            </div>
-          </slide> -->
-        </carousel>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div class="about-border"></div>
-        <carousel> 
-          <slide>
-            <img src="/assets/images/sport1.jpg" alt="first slide" style="display: block; width:100%">
-              <div class="caption">
-                <div class="carousel-caption d-none d-md-block">
-                  <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">WYDARZENIA SPORTOWE</h2>
-                </div>
-              </div>
-          </slide>
-          <slide>
-              <img src="/assets/images/sport2.jpg" alt="first slide" style="display: block; width: 100%;">
-              <div class="caption">
-                <div class="carousel-caption d-none d-md-block">
-                  <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">WYDARZENIA SPORTOWE</h2>
-                </div>
-              </div>
-            </slide>
-            <!-- <slide>
-              <img src="https://rondo.cc/images/galerie/236-1366.jpg" alt="first slide" style="display: block; width: 100%;">
-              <div class="caption">
-                <div class="carousel-caption d-none d-md-block" style="top:5%">
-                </div>
-              </div>
-            </slide>
-          <slide>
-            <img src="https://rondo.cc/images/galerie/332-1638.jpg" alt="second slide" style="display: block; width: 100%;">
-            <div class="caption">
-              <div class="carousel-caption d-none d-md-block" style="top:5%">
-              </div>
-            </div>
-          </slide>
-          <slide>
-            <img src="http://www.czarnykotstudio.pl/wp-content/uploads/2015/11/003-fotografia-dziecieca-konin.jpg" alt="third slide" style="display: block; width: 100%;">
-            <div class="caption">
-              <div class="carousel-caption d-none d-md-block" style="top:5%">
-              </div>
-            </div>
-          </slide> -->
-        </carousel>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="about-border"></div>
-        <carousel> 
-          <slide>
-            <img src="/assets/images/sesja1.jpg" alt="first slide" style="display: block; width:100%">
-              <div class="caption">
-                <div class="carousel-caption d-none d-md-block">
-                  <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">SESJE ZDJĘCIOWE</h2>
-                </div>
-              </div>
-          </slide>
-          <slide>
-              <img src="/assets/images/sesja2.jpg" alt="first slide" style="display: block; width: 100%;">
-              <div class="caption">
-                <div class="carousel-caption d-none d-md-block">
-                  <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">SESJE ZDJĘCIOWE</h2>
-                </div>
-              </div>
-            </slide>
-            <!-- <slide>
-              <img src="https://rondo.cc/images/galerie/236-1366.jpg" alt="first slide" style="display: block; width: 100%;">
-              <div class="caption">
-                <div class="carousel-caption d-none d-md-block" style="top:5%">
-                </div>
-              </div>
-            </slide>
-          <slide>
-            <img src="https://rondo.cc/images/galerie/332-1638.jpg" alt="second slide" style="display: block; width: 100%;">
-            <div class="caption">
-              <div class="carousel-caption d-none d-md-block" style="top:5%">
-              </div>
-            </div>
-          </slide>
-          <slide>
-            <img src="http://www.czarnykotstudio.pl/wp-content/uploads/2015/11/003-fotografia-dziecieca-konin.jpg" alt="third slide" style="display: block; width: 100%;">
-            <div class="caption">
-              <div class="carousel-caption d-none d-md-block" style="top:5%">
-              </div>
-            </div>
-          </slide> -->
         </carousel>
       </div>
     </div>

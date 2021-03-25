@@ -1,0 +1,9 @@
+<div class="backdrop" (click) = "closeIt()"></div>
+<div [@dialog] class="alert-box">
+    <img src="{{ photo }}" alt="first slide" style="display: block; width:100%">
+    <div class="alert-box-actions">
+        <span class="material-icons" (click) = "previousPhoto()" style="cursor:pointer">navigate_before</span>
+        <span class="material-icons" (click) = "nextPhoto()" style="cursor:pointer">navigate_next</span>
+        <span class="material-icons" (click) = "closeIt()" style="cursor:pointer">close</span>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-about-me',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutMeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private viewPortScroller: ViewportScroller) { }
 
   ngOnInit(): void {
   }
 
+  goToBottom(el: HTMLElement){
+    // document.querySelector('.mat-sidenav-content').scrollTo({
+    //   top: 100,
+    //   left: 0,
+    //   behavior: 'smooth'
+    // });
+    
+      el.scrollIntoView({behavior: "smooth"});
+  
+    console.log('test')
+  }
 }

@@ -1,3 +1,75 @@
 <app-menu>
-    <p>about-me works!      link do instgramu i innych rzeczy, moze jakies api instagramowe</p>
+
+    <!-- na desktopy -->
+    <div style="height: 5%;" class="hidden-xs"></div>
+    <div style="width:100%;
+    left:0%; 
+    height: 95%; 
+    background: url('/assets/images/sesja1.jpg');
+    background-repeat:no-repeat;
+    background-position:center;"
+    class="hidden-xs">
+        <div style="height: 72%;"></div>
+        <p style="text-align: center; color:white; font-size:45px; line-height: normal;">POZNAJ MNIE</p>
+        <p style="text-align: center; color:white; font-size:55px; line-height: normal;">Paweł Rogalski</p>
+        <p style="color:white; text-align:center;">
+            <span style="font-size:50px; cursor:pointer" class="material-icons" (click)="goToBottom(target)">
+            keyboard_arrow_down
+            </span>
+        </p>
+        <p #target style="bottom:6%; position:absolute" ></p>
+    </div>
+    <div style="height: 100px; width:100%; background-color:rgb(228, 226, 226)" class="hidden-xs">
+        <p style="position: relative; text-align:center; top:40px; font-size:50px;">O Mnie Prywatnie...</p>
+    </div>
+    <!-- na desktopy -->
+    
+    <!-- na komory -->
+    <div style="height: 3%;" class="hidden-sm hidden-md hidden-lg hidden-xl"></div>
+    <div style="width:100%;
+    left:0%; 
+    height: 97%; 
+    background: url('/assets/images/sesja1.jpg');
+    background-repeat:no-repeat;
+    background-position:center;"
+    class="hidden-sm hidden-md hidden-lg hidden-xl">
+        <div style="height: 75%;"></div>
+        <p style="text-align: center; color:white; font-size:20px; line-height: normal;">POZNAJ MNIE</p>
+        <p style="text-align: center; color:white; font-size:30px; line-height: normal;">Paweł Rogalski</p>
+        <p style="font-size:60px; color:white; text-align:center;">
+            <span class="material-icons" (click)="goToBottom(targetMobile)">
+            keyboard_arrow_down
+            </span>
+        </p>
+        <p #targetMobile style="bottom:7%; position:relative" ></p>
+    </div>
+    <div style="height: 60px; width:100%; background-color:rgb(228, 226, 226)" class="hidden-sm hidden-md hidden-lg hidden-xl">
+        <p style="position: relative; text-align:center; top:20px; font-size:30px;">O Mnie Prywatnie...</p>
+    </div>
+    <!-- na komory -->
+
+    <div style="height: 600px; width:100%; background-color:rgb(255, 255, 255)">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <p class="help-block" style="left:10%; width:80%; font-size: 22px; position: relative; top: 70px;line-height: normal; ">Nazywam się Paweł Rogalski</p>
+                </div>
+                <div class="col-xs-12 col-sm-6" style="text-align: center">
+                    <img style= "border-radius:5px; position: relative; top: 70px; width: 80%; height: 80%;" src="/assets/images/slub1.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 600px; width:100%; background-color:rgb(228, 226, 226)">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6" style="text-align: center">
+                    <img style= "border-radius:5px; position: relative; top: 70px; width: 80%; height: 80%;" src="/assets/images/slub1.jpg">
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <p class="help-block" style="left:10%; width:80%; font-size: 22px; position: relative; top: 70px; line-height: normal;">Fotografią zajmuję się od...rtertwertwert wretrwetwertwert erwtrweterwt rewtwre</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </app-menu>

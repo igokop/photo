@@ -26,13 +26,13 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { DatePipe } from '@angular/common';
 import { NgbModule, NgbNavbar } from '@ng-bootstrap/ng-bootstrap'; 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { MenuOldComponent } from './menu-old/menu-old.component';
 import { OwnerComponent } from './owner/owner.component';
 import { OwnerLoginComponent } from './owner-login/owner-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './owner-login/auth-guard';
 import { AuthService } from './owner-login/auth-service';
 import { AlertComponent } from './alert/alert.component';
+import { BigPictureComponent } from './big-picture/big-picture.component';
 
 
 @NgModule({
@@ -44,10 +44,10 @@ import { AlertComponent } from './alert/alert.component';
     AboutMeComponent,
     HomeComponent,
     CalendarComponent,
-    MenuOldComponent,
     OwnerComponent,
     OwnerLoginComponent,
-    AlertComponent
+    AlertComponent,
+    BigPictureComponent
   ],
   imports: [
     BrowserModule,

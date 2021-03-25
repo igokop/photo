@@ -2,16 +2,16 @@
   <mat-sidenav style="background-color: rgb(10, 10, 10);" #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'">
-    <mat-toolbar style="color:white">Photography</mat-toolbar>
+    <mat-toolbar  routerLink="/" style="cursor: pointer; color:white">Photography</mat-toolbar>
     <mat-nav-list>
-      <a style="color:white" mat-list-item routerLink="/">Strona główna</a>
       <a style="color:white" mat-list-item routerLink="/register">Umów się</a>
+      <a style="color:white" mat-list-item routerLink="/aboutMe">O mnie</a>
       <a style="color:white" mat-list-item routerLink="/contact">Kontakt</a>
       <a style="color:white" mat-list-item (click)=onNavigate()>Facebook</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar style="background-color: rgb(10, 10, 10); color:white">
+    <mat-toolbar style="position:fixed; background-color: rgb(10, 10, 10); color:white; z-index: 10;">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -22,17 +22,13 @@
       </button>
 
       <span routerLink="/" style="cursor:pointer;">PAWEL ROGALSKI</span>
-      <span *ngIf="(isHandset$ | async)=== false" style="width: 95%;"></span>
-      <span routerLink="/" *ngIf="(isHandset$ | async)=== false" style="cursor: pointer; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;">Strona główna</span>
-      <span *ngIf="(isHandset$ | async)=== false" style="width: 20px;"></span>
-      <span routerLink="/register" *ngIf="(isHandset$ | async)=== false" style="cursor: pointer; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;">Umów się</span>
-      <span *ngIf="(isHandset$ | async)=== false" style="width: 20px;"></span>
-      <span routerLink="/aboutMe" *ngIf="(isHandset$ | async)=== false" style="cursor: pointer; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;">O mnie</span>
-      <span *ngIf="(isHandset$ | async)=== false" style="width: 20px;"></span>
-      <span routerLink="/contact" *ngIf="(isHandset$ | async)=== false" style="cursor: pointer; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;">Kontakt</span>
-      <span *ngIf="(isHandset$ | async)=== false" style="width: 20px;"></span>
-      <mat-icon *ngIf="(isHandset$ | async)=== false" (click)="onNavigate()"style="cursor: pointer;">facebook</mat-icon>
+      <!-- <span style="width: 15px;"></span>
+      <mat-icon routerLink="/" style=" cursor: pointer;">camera_alt</mat-icon> -->
+      <span routerLink="/register" *ngIf="(isHandset$ | async)=== false" style="position:fixed; right:230px; cursor: pointer; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;">Umów się</span>
+      <span routerLink="/aboutMe" *ngIf="(isHandset$ | async)=== false" style="position:fixed; right:140px; cursor: pointer; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;">O mnie</span>
+      <span routerLink="/contact" *ngIf="(isHandset$ | async)=== false" style="position:fixed; right:50px; cursor: pointer; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;">Kontakt</span>
+      <mat-icon *ngIf="(isHandset$ | async)=== false" (click)="onNavigate()"style="position:fixed; right:10px; cursor: pointer;">facebook</mat-icon>
     </mat-toolbar>
-    <ng-content></ng-content>
+    <ng-content style="z-index: 0;"></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

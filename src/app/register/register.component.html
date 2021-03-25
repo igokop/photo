@@ -1,4 +1,5 @@
 <app-menu>
+    <div style="height: 70px;"></div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -70,6 +71,7 @@
                                             <button *ngIf="informacja === true"  mat-fab color="accent" style="background-color: rgb(78, 104, 129)" type="submit"  aria-label="Example icon button with a bookmark icon">
                                                 <mat-icon>done</mat-icon>
                                             </button>
+                                            <p *ngIf="informacja === true" class="help-block"> Mail potwierdzający mógł trafić do spamu, rzuć proszę okiem!</p>
                                         </div>
                                     </form>
             
